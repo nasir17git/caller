@@ -6,7 +6,7 @@ on:
 jobs:
    calling:
     name: build
-    uses: nasir17git/calleds/.github/workflows/called.yaml@main
+    uses: nasir17git/called/.github/workflows/called.yaml@main
     with:
       APPLICATION_NAME: monitor-by-query
       NEED_MYSQL: false
