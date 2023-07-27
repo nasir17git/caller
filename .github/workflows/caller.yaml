@@ -1,7 +1,7 @@
 name: Caller Workflow
 
 on:
-  # push:
+  push:
   workflow_dispatch:
 
 jobs:
@@ -10,6 +10,6 @@ jobs:
     uses: nasir17git/called/.github/workflows/called.yaml@main
     with:
       username: 230727
-      choice: false
+      choice: true
       sentence: wgwegwe-fff
     secrets: inherit
