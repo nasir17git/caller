@@ -1,0 +1,15 @@
+name: Caller Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+   calling:
+    name: build
+    uses: nasir17git/calleds/.github/workflows/called.yaml@main
+    with:
+      APPLICATION_NAME: monitor-by-query
+      NEED_MYSQL: false
+      NEED_MONGO: false
+      username: 230727
+    secrets: inherit
