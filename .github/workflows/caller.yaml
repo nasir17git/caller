@@ -10,6 +10,6 @@ jobs:
     uses: nasir17git/called/.github/workflows/called.yaml@main
     with:
       username: 230727
-      choice: true
+      choice: false
       sentence: wgwegwe-fff
     secrets: inherit
