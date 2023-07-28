@@ -9,11 +9,14 @@ on:
         type: string
       NEED_MYSQL:
         required: true
+        default: false
         type: boolean
       CONFIRMATION:
         description: 🚀 🚀 운영 환경에 배포합니다.
         required: true
-        type: boolean
+        type: choice
+        options:
+          - 확인
 
 jobs:
    calling:
