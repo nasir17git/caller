@@ -9,7 +9,7 @@ on:
         type: string
       NEED_MYSQL:
         required: true
-        default: false
+        default: true
         type: boolean
       CONFIRMATION:
         description: 🚀 🚀 운영 환경에 배포합니다.
