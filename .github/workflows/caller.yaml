@@ -5,18 +5,14 @@ on:
   workflow_dispatch:
     inputs:
       APP_NAME:
-        required: true
         type: string
       NEED_MYSQL:
-        required: true
         default: true
         type: boolean
       CONFIRMATION:
         description: 🚀 🚀 운영 환경에 배포합니다.
         required: true
-        type: choice
-        options:
-          - 확인
+        type: boolean
 
 jobs:
    calling:
