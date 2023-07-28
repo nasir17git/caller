@@ -3,13 +3,19 @@ name: Caller Workflow
 on:
   push:
   workflow_dispatch:
+    inputs:
+      APP_NAME:
+        required: true
+        type: string
+      NEED_MYSQL:
+        required: true
+        type: boolean
 
 jobs:
    calling:
     name: build
     uses: nasir17git/called/.github/workflows/called.yaml@main
     with:
-      username: 230727
-      choice: false
-      sentence: wgwegwe-fff
+      APP_NAME: ${{ inputs.APP_NAME }}
+      NEED_MYSQL: ${{ inputs.NEED_MYSQL }}
     secrets: inherit
