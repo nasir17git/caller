@@ -10,6 +10,10 @@ on:
       NEED_MYSQL:
         required: true
         type: boolean
+      CONFIRMATION:
+        description: 🚀 🚀 운영 환경에 배포합니다.
+        required: true
+        type: boolean
 
 jobs:
    calling:
