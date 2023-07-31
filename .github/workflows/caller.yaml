@@ -7,8 +7,8 @@ on:
       APP_NAME:
         type: string
       NEED_MYSQL:
-        default: true
-        type: boolean
+        default: "false"
+        type: string
       TARGET:
         description: 'dddd'
         required: true
