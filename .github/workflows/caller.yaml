@@ -9,10 +9,13 @@ on:
       NEED_MYSQL:
         default: true
         type: boolean
-      CONFIRMATION:
-        description: 🚀 🚀 운영 환경에 배포합니다.
+      TARGET:
+        description: 'dddd'
         required: true
-        type: boolean
+        type: choice
+        options:
+          - aaaaaa
+          - bbbbb
 
 jobs:
    calling:
@@ -21,4 +24,5 @@ jobs:
     with:
       APP_NAME: ${{ inputs.APP_NAME }}
       NEED_MYSQL: ${{ inputs.NEED_MYSQL }}
+      TARGET: ${{ inputs.TARGET }}
     secrets: inherit
