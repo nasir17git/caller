@@ -1,7 +1,7 @@
 name: Caller Workflow
 
 on:
-  # push:
+  push:
   workflow_dispatch:
     inputs:
       APP_NAME:
@@ -9,13 +9,14 @@ on:
       NEED_MYSQL:
         default: true
         type: boolean
-      TARGET:
-        description: 'dddd'
+      CONFIRMATION:
+        description: '🚀🚀운영 환경🚀🚀, 배포 대상을 선택해주세요.'
         required: true
         type: choice
         options:
           - ""
-          - bbbbb
+          - lendit
+          - service-dev
 
 jobs:
    calling:
@@ -24,5 +25,5 @@ jobs:
     with:
       APP_NAME: ${{ inputs.APP_NAME }}
       NEED_MYSQL: ${{ inputs.NEED_MYSQL }}
-      TARGET: ${{ inputs.TARGET }}
+      TARGET: ${{ inputs.NEED_MYSQL }}
     secrets: inherit
