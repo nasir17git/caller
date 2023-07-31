@@ -7,14 +7,14 @@ on:
       APP_NAME:
         type: string
       NEED_MYSQL:
-        default: "false"
-        type: string
+        default: true
+        type: boolean
       TARGET:
         description: 'dddd'
         required: true
         type: choice
         options:
-          - 
+          - ""
           - bbbbb
 
 jobs:
