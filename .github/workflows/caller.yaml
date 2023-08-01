@@ -1,5 +1,5 @@
 name: Caller Workflow
-
+run-name: 이름 -  ${{ github.ref_name }} > ${{inputs.CONFIRMATION }} by ${{ github.actor }}
 on:
   push:
   workflow_dispatch:
