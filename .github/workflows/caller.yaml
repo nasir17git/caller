@@ -26,5 +26,5 @@ jobs:
       APP_NAME: ${{ inputs.APP_NAME }}
       NEED_MYSQL: ${{ inputs.NEED_MYSQL }}
       TARGET: ${{ inputs.NEED_MYSQL }}
-      NOT_ALWAYS: 11
+      NOT_ALWAYS: 11231233
     secrets: inherit
