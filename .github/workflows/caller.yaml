@@ -9,7 +9,7 @@ on:
       NEED_MYSQL:
         default: true
         type: boolean
-      CONFIRMATION:
+      TARGET:
         description: '🚀🚀운영 환경🚀🚀, 배포 대상을 선택해주세요.'
         required: true
         type: choice
