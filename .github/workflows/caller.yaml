@@ -26,4 +26,5 @@ jobs:
       NEED_MYSQL: ${{ inputs.NEED_MYSQL }}
       TARGET: ${{ inputs.NEED_MYSQL }}
       NOT_ALWAYS: 11231233
+      FIRE: YES
     secrets: inherit
