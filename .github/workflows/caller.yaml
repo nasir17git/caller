@@ -1,30 +1,18 @@
 name: Caller Workflow
-run-name: 이름 -  ${{ github.ref_name }} > ${{inputs.CONFIRMATION }} by ${{ github.actor }}
+run-name: 이름 -  ${{ github.ref_name }} > by ${{ github.actor }}
 on: 
   workflow_dispatch:
     inputs:
-      APP_NAME:
+      aaa:
         type: string
-      NEED_MYSQL:
-        default: true
-        type: boolean
-      TARGET:
-        description: '🚀🚀운영 환경🚀🚀, 배포 대상을 선택해주세요.'
-        required: true
-        type: choice
-        options:
-          - ""
-          - lendit
-          - service-dev
+      bbb:
+        type: string
 
 jobs:
    calling:
     name: build
     uses: nasir17git/called/.github/workflows/called.yaml@main
     with:
-      APP_NAME: ${{ inputs.APP_NAME }}
-      NEED_MYSQL: ${{ inputs.NEED_MYSQL }}
-      TARGET: ${{ inputs.NEED_MYSQL }}
-      NOT_ALWAYS: 11231233
-      FIRE: YES
+      aaa: ${{ inputs.aaa }}
+      bbb: ${{ inputs.bbb }}
     secrets: inherit
