@@ -11,7 +11,7 @@ on:
 jobs:
    calling:
     name: build
-    uses: nasir17git/called/.github/workflows/called.yaml@v1
+    uses: nasir17git/called/.github/workflows/called.yaml@v3
     with:
       aaa: ${{ inputs.aaa }}
       bbb: ${{ inputs.bbb }}
