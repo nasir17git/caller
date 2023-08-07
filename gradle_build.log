@@ -1,3 +1,5 @@
+> Task :aaa:bbb
+
 > Task :aaa FAILED
 e: file:///home/runner/work/path.kt:20:36 error msg: sample
 e: file:///home/runner/work/path.kt:52:28 error msg: sample
