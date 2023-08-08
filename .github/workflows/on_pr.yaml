@@ -1,5 +1,5 @@
 name: on_pr
-run-name: 빌드 - ${{ github.event.head_commit.message }}, ${{ github.head_ref }} by ${{ github.actor }}
+run-name: 빌드 - ${{ github.event.pull_request.title }}, ${{ github.head_ref }} by ${{ github.actor }}
 
 on: 
   # push:
