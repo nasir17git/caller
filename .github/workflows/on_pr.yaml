@@ -4,10 +4,10 @@ run-name: 빌드 - ${{ github.event.pull_request.title }}, ${{ github.head_ref }
 on: 
   push:
   pull_request:
+  workflow_dispatch:
 
 jobs:
    calling:
     name: build
     uses: nasir17git/called/.github/workflows/prtest.yaml@main
     secrets: inherit
-    gh workflow run on_pr.yaml --repo nasir17git/caller -f aaa=a-string -f bbb=b-string
