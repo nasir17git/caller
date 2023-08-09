@@ -2,10 +2,7 @@ name: on_pr
 run-name: 빌드 - ${{ github.event.pull_request.title }}, ${{ github.head_ref }} by ${{ github.actor }}
 
 on: 
-  # push:
-  #   branches-ignore:
-  #     - main
-  #     - master
+  push:
   pull_request:
 
 jobs:
@@ -13,3 +10,4 @@ jobs:
     name: build
     uses: nasir17git/called/.github/workflows/prtest.yaml@main
     secrets: inherit
+    gh workflow run on_pr.yaml --repo nasir17git/caller -f aaa=a-string -f bbb=b-string
