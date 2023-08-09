@@ -9,5 +9,5 @@ on:
 jobs:
    calling:
     name: build
-    uses: nasir17git/called/.github/workflows/prtest.yaml@v4
+    uses: nasir17git/called/.github/workflows/prtest.yaml@other_name
     secrets: inherit
