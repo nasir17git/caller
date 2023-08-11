@@ -15,7 +15,7 @@ jobs:
 
   calling:
     needs: validation
-    if: needs.validation.outputs.in_progress_check == '0'
+    if: needs.validation.outputs.in_progress_check == '1'
     name: build
     uses: nasir17git/called/.github/workflows/con-name.yaml@main
     secrets: inherit
