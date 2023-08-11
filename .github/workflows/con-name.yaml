@@ -1,0 +1,13 @@
+name: on_pr
+run-name: 빌드 - ${{ github.event.head_commit.message }}, ${{ github.ref_name }} by ${{ github.actor }}
+
+on: 
+  push: main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+   calling:
+    name: build
+    uses: nasir17git/called/.github/workflows/con-name.yaml@main
+    secrets: inherit
