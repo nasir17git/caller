@@ -12,9 +12,8 @@ jobs:
   validation:
    name: validation
    uses: nasir17git/called/.github/workflows/validation.yaml@main
-   secrets: inherit
   calling:
-   if: false
+   if: ${{ needs.validation.outputs.in_progess_check != '0'}}
    name: build
    uses: nasir17git/called/.github/workflows/con-name.yaml@main
    secrets: inherit
