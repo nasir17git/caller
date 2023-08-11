@@ -9,7 +9,12 @@ on:
   workflow_dispatch:
 
 jobs:
-   calling:
-    name: build
-    uses: nasir17git/called/.github/workflows/con-name.yaml@main
-    secrets: inherit
+  validation:
+   name: validation
+   uses: nasir17git/called/.github/workflows/validation.yaml@main
+   secrets: inherit
+  calling:
+   if: false
+   name: build
+   uses: nasir17git/called/.github/workflows/con-name.yaml@main
+   secrets: inherit
