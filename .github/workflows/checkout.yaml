@@ -3,6 +3,7 @@ run-name: "checkout"
 
 on: 
   push:
+  workflow_dispatch:
 
 jobs:
   where:
