@@ -1,10 +1,10 @@
-name: 운영 배포
+name: 🚀🚀 운영 배포
 run-name: "Name: ${{ github.event.pull_request.title || github.event.head_commit.message }}"
 
 on: 
   push:
-    branches:
-      - main
+    # branches:
+    #   - main
   pull_request:
   workflow_dispatch:
     inputs:
