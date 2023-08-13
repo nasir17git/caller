@@ -41,18 +41,4 @@ jobs:
         run: |
           echo "needs"
           echo "$CONTEXT"
-          
-      - name: check-jobs
-        env:
-          CONTEXT: ${{ toJson(jobs) }}
-        run: |
-          echo "jobs"
-          echo "$CONTEXT"
-
-      - name: check-workflow_call
-        env:
-          CONTEXT: ${{ toJson(on) }}
-        run: |
-          echo "workflow_call"
-          echo "$CONTEXT"
 
