@@ -1,0 +1,15 @@
+name: checkout
+run-name: "checkout"
+
+on: 
+  push:
+
+jobs:
+  where:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: check
+        run: |
+          git branch
+
