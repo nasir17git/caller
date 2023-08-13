@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
     inputs:
         force_start:
-          type: boolean
+          type: string
 
 jobs:
   validation:
