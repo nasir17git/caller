@@ -1,0 +1,14 @@
+name: checkout
+run-name: "checkout"
+
+on: 
+  push:
+
+jobs:
+  check_for_failed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check
+        run: |
+          echo "master!"
+
