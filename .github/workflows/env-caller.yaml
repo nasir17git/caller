@@ -1,0 +1,26 @@
+name: 🚀🚀 운영 배포
+run-name: "Name: ${{ github.event.pull_request.title || github.event.head_commit.message }}"
+
+on: 
+  push:
+    # branches:
+    #   - main
+  pull_request:
+  workflow_dispatch:
+    inputs:
+        force_start:
+          type: string
+
+jobs:
+  validation:
+    name: validation
+    uses: nasir17git/called/.github/workflows/env.yaml@main
+    with: 
+      force_start: ${{ inputs.force_start }}
+
+  calling:
+    needs: validation
+    if: needs.validation.outputs.in_progress_check == '1' && needs.validation.outputs.branch_check == '1'
+    name: build
+    uses: nasir17git/called/.github/workflows/con-name.yaml@main
+    secrets: inherit

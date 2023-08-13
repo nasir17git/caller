@@ -2,10 +2,10 @@ name: con-name
 run-name: "Name: ${{ github.event.pull_request.title || github.event.head_commit.message }}"
 
 on: 
-  push:
-    branches:
-      - main
-  pull_request:
+  # push:
+  #   branches:
+  #     - main
+  # pull_request:
   workflow_dispatch:
 
 jobs:
@@ -15,7 +15,7 @@ jobs:
 
   calling:
     needs: validation
-    if: needs.validation.outputs.in_progress_check == '1'
+    if: needs.validation.outputs.in_progress_check == '1' && 
     name: build
     uses: nasir17git/called/.github/workflows/con-name.yaml@main
     secrets: inherit
