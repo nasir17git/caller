@@ -15,6 +15,8 @@ jobs:
   validation:
     name: validation
     uses: nasir17git/called/.github/workflows/env.yaml@main
+    with: 
+      force_start: ${{ inputs.force_start }}
 
   calling:
     needs: validation
