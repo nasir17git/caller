@@ -7,9 +7,9 @@ on:
     #   - main
   pull_request:
   workflow_dispatch:
-    # inputs:
-    #     force_start:
-    #       type: string
+    inputs:
+        force_start:
+          type: string
 
 jobs:
   validation:
