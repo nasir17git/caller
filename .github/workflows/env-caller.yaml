@@ -34,3 +34,33 @@ jobs:
         run: |
           echo ${{needs.validation.outputs.in_progress_check}}
           echo ${{needs.validation.outputs.branch_check}}
+
+      - name: check-needs
+        env:
+          CONTEXT: ${{ toJson(needs) }}
+        run: |
+          echo "needs"
+          echo "$CONTEXT"
+          
+      - name: check-jobs
+        env:
+          CONTEXT: ${{ toJson(jobs.validation) }}
+        run: |
+          echo "jobs"
+          echo "$CONTEXT"
+
+      - name: check-workflow_call
+        env:
+          CONTEXT: ${{ toJson(on.workflow_call.outputs) }}
+        run: |
+          echo "workflow_call"
+          echo "$CONTEXT"
+
+      - name: check-workflow_call
+        env:
+          CONTEXT: ${{ toJson(on.workflow_call.outputs) }}
+        run: |
+          echo "workflow_call"
+          echo "$CONTEXT"
+
+
