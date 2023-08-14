@@ -4,11 +4,10 @@ run-name: "Name: ${{ github.event.pull_request.title || github.ref_name }} by ${
 on: 
   push:
     branches:
-      - main
-      - master
+      - [main,master]
   pull_request:
-    types:
-      - closed
+    # types:
+    #   - [opened, reopened]
   workflow_dispatch:
 
 jobs:
