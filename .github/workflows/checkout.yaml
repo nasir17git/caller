@@ -7,8 +7,7 @@ on:
       - main
       - master
   pull_request:
-    types:
-      - [opened, reopened, synchronize, closed]
+    types: [opened, reopened, synchronize, closed]
   workflow_dispatch:
 
 jobs:
