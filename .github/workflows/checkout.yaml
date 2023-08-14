@@ -26,3 +26,5 @@ jobs:
         run: |
           echo "$GITHUB_CONTEXT"
 
+      - name: check branch name
+        run: echo ${{ github.head_ref || github.ref_name }} 
