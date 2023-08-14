@@ -5,21 +5,15 @@ on:
   # push:
     # branches:
     #   - main
-  pull_request:
+  # pull_request:
   workflow_dispatch:
-    inputs:
-        force_start:
-          type: string
 
 jobs:
   validation:
     name: validation
     uses: nasir17git/called/.github/workflows/env.yaml@main
-    with: 
-      force_start: ${{ inputs.force_start }}
+    secrets: inherit
     
-
-
   calling:
     needs: validation
     if: needs.validation.outputs.in_progress_check == '1' && needs.validation.outputs.branch_check == '1' && always()
@@ -27,20 +21,20 @@ jobs:
     uses: nasir17git/called/.github/workflows/con-name.yaml@main
     secrets: inherit
   
-  check_for_failed:
-    runs-on: ubuntu-latest
-    needs: validation
-    if: always()
-    steps:
-      - name: check
-        run: |
-          echo ${{needs.validation.outputs.in_progress_check}}
-          echo ${{needs.validation.outputs.branch_check}}
+  # check_for_failed:
+  #   runs-on: ubuntu-latest
+  #   needs: validation
+  #   if: always()
+  #   steps:
+  #     - name: check
+  #       run: |
+  #         echo ${{needs.validation.outputs.in_progress_check}}
+  #         echo ${{needs.validation.outputs.branch_check}}
 
-      - name: check-needs
-        env:
-          CONTEXT: ${{ toJson(needs) }}
-        run: |
-          echo "needs"
-          echo "$CONTEXT"
+  #     - name: check-needs
+  #       env:
+  #         CONTEXT: ${{ toJson(needs) }}
+  #       run: |
+  #         echo "needs"
+  #         echo "$CONTEXT"
 
