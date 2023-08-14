@@ -14,12 +14,12 @@ jobs:
     uses: nasir17git/called/.github/workflows/env.yaml@main
     secrets: inherit
     
-  # calling:
-  #   needs: validation
-  #   if: needs.validation.outputs.in_progress_check == '1' && needs.validation.outputs.branch_check == '1' && always()
-  #   name: build
-  #   uses: nasir17git/called/.github/workflows/con-name.yaml@main
-  #   secrets: inherit
+  calling:
+    needs: validation
+    if: needs.validation.outputs.in_progress_check == '1' && needs.validation.outputs.branch_check == '1' && always()
+    name: build
+    uses: nasir17git/called/.github/workflows/con-name.yaml@main
+    secrets: inherit
   
   # check_for_failed:
   #   runs-on: ubuntu-latest
