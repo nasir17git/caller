@@ -1,4 +1,4 @@
-name: 🚀🚀 운영 배포
+name: 다른이름
 run-name: "Name: ${{ github.event.pull_request.title || github.event.head_commit.message }}"
 
 on: 
