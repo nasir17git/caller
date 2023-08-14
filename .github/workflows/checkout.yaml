@@ -2,11 +2,11 @@ name: checkout
 run-name: "Name: ${{ github.event.pull_request.title || github.ref_name }} by ${{ github.actor }}"
 
 on: 
-  push:
+  # push:
     # branches:
     #   - main
     #   - master
-  pull_request:
+  # pull_request:
     # types: [opened, reopened, synchronize, closed]
   workflow_dispatch:
 

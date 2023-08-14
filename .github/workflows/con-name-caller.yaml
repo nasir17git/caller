@@ -1,11 +1,11 @@
 name: con-name
-run-name: "Name: ${{ github.event.pull_request.title || github.event.head_commit.message }}"
+run-name: "Name: ${{ github.event.pull_request.title || github.head_ref || github.ref_name }}"
 
 on: 
-  # push:
+  push:
   #   branches:
   #     - main
-  # pull_request:
+  pull_request:
   workflow_dispatch:
 
 jobs:
