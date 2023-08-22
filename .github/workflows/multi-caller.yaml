@@ -1,5 +1,5 @@
-name: :memo: wdwdwdw
-run-name: :memo:, ${{ github.event.head_commit.message }}
+name: 📝 wdwdwdw
+run-name: 📝, ${{ github.event.head_commit.message }}
 
 on: 
   # push:
