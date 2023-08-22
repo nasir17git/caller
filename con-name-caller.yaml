@@ -1,0 +1,15 @@
+name: con-name
+run-name: "Name: ${{ github.event.pull_request.title || github.head_ref || github.ref_name }}"
+
+on: 
+  # push:
+  #   branches:
+  #     - main
+  # pull_request:
+  workflow_dispatch:
+
+jobs:
+  calling:
+    name: build
+    uses: nasir17git/called/.github/workflows/con-name.yaml@main
+    secrets: inherit
