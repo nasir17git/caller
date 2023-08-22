@@ -27,6 +27,7 @@ on:
         type: choice
         description: "dddd"
         options:
+          - ""
           - choice1
           - choice2
       string:
