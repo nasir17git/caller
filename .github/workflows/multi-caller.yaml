@@ -23,6 +23,9 @@ on:
       ccc:
         type: boolean
         description: check for ccc
+      string:
+        type: string
+        description: "첫번째 줄 \n 두번째 줄"
 
 jobs:
   input_check:
