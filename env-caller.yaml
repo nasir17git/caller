@@ -1,0 +1,40 @@
+name: 운영 배포
+run-name: "Name: ${{ github.event.pull_request.title || github.event.head_commit.message }}"
+
+on: 
+  # push:
+  #   branches:
+  #     - main
+  # pull_request:
+  workflow_dispatch:
+
+jobs:
+  validation:
+    name: validation
+    uses: nasir17git/called/.github/workflows/env.yaml@main
+    secrets: inherit
+    
+  calling:
+    needs: validation
+    if: needs.validation.outputs.in_progress_check == '1' && needs.validation.outputs.branch_check == '1' && always()
+    name: build
+    uses: nasir17git/called/.github/workflows/con-name.yaml@main
+    secrets: inherit
+  
+  # check_for_failed:
+  #   runs-on: ubuntu-latest
+  #   needs: validation
+  #   if: always()
+  #   steps:
+  #     - name: check
+  #       run: |
+  #         echo ${{needs.validation.outputs.in_progress_check}}
+  #         echo ${{needs.validation.outputs.branch_check}}
+
+  #     - name: check-needs
+  #       env:
+  #         CONTEXT: ${{ toJson(needs) }}
+  #       run: |
+  #         echo "needs"
+  #         echo "$CONTEXT"
+

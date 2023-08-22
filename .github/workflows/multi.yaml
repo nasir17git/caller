@@ -1,0 +1,28 @@
+name: con-name
+run-name: "Name: ${{ github.event.pull_request.title || github.event.head_commit.message }}"
+
+on: 
+  # push:
+  #   branches:
+  #     - main
+  # pull_request:
+  workflow_dispatch:
+    inputs:
+      all:
+        type: boolean
+        description: check for all
+      aaa:
+        type: boolean
+        description: check for aaa
+      bbb:
+        type: boolean
+        description: check for bbb
+      ccc:
+        type: boolean
+        description: check for ccc
+
+jobs:
+  calling:
+    name: build
+    uses: nasir17git/called/.github/workflows/multi-call.yaml@main
+    secrets: inherit
