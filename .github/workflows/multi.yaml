@@ -8,6 +8,9 @@ on:
   # pull_request:
   workflow_dispatch:
     inputs:
+      SKIP_TEST:
+        # 빌드 테스트를 생략하려면 true
+        type: boolean
       all:
         type: boolean
         description: check for all
@@ -22,7 +25,32 @@ on:
         description: check for ccc
 
 jobs:
-  calling:
-    name: build
-    uses: nasir17git/called/.github/workflows/multi-call.yaml@main
+  input_check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
+          echo "$GITHUB_CONTEXT"
+      - name: Dump inputs
+        env:
+          INPUT_CONTEXT: ${{ toJson(inputs) }}
+        run: |
+          echo "$INPUT_CONTEXT"
+  module_check:
+    name: module_check
+    uses: nasir17git/called/.github/workflows/multi-check.yaml@main
+    with: # inputs를 한번에 넣는방법이 있으려나 매번 설정하는건 좀그렇고 pass:${{inputs}}같이 던지면 나중에 ${{inputs.pass.aaa}}식으로 쓸수없나
+      SKIP_TEST: ${{inputs.SKIP_TEST}}
+      all: ${{inputs.all}}
+      aaa: ${{inputs.aaa}}
+      bbb: ${{inputs.bbb}}
+      ccc: ${{inputs.ccc}}
+      pass: ${{inputs}}
     secrets: inherit
+#   build:
+#     name: build
+#     uses: nasir17git/called/.github/workflows/multi-main.yaml@main
+#     secrets: inherit
