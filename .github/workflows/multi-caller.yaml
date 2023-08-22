@@ -48,7 +48,7 @@ jobs:
       aaa: ${{inputs.aaa}}
       bbb: ${{inputs.bbb}}
       ccc: ${{inputs.ccc}}
-      pass: ${{inputs}}
+      # pass: ${{inputs}}
     secrets: inherit
 #   build:
 #     name: build
