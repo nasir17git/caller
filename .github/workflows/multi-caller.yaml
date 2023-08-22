@@ -23,6 +23,12 @@ on:
       ccc:
         type: boolean
         description: check for ccc
+      choice:
+        type: choice
+        description: "dddd"
+        options:
+          - choice1
+          - choice2
       string:
         type: string
         description: "첫번째 줄 \n 두번째 줄"
@@ -51,6 +57,7 @@ jobs:
       aaa: ${{inputs.aaa}}
       bbb: ${{inputs.bbb}}
       ccc: ${{inputs.ccc}}
+      pass: (${{inputs.choice}} || ${{inputs.string}})
       # pass: ${{inputs}}
     secrets: inherit
 #   build:
