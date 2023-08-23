@@ -12,7 +12,6 @@ jobs:
   validation:
     name: validation
     uses: nasir17git/called/.github/workflows/env.yaml@main
-    secrets: inherit
     
   calling:
     needs: validation
