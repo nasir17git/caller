@@ -49,6 +49,7 @@ jobs:
           INPUT_CONTEXT: ${{ toJson(inputs) }}
         run: |
           echo "$INPUT_CONTEXT"
+
   module_check:
     name: module_check
     uses: nasir17git/called/.github/workflows/multi-check.yaml@main
@@ -58,7 +59,7 @@ jobs:
       aaa: ${{inputs.aaa}}
       bbb: ${{inputs.bbb}}
       ccc: ${{inputs.ccc}}
-      pass: (${{inputs.choice}} || ${{inputs.string}})
+      # pass: ${{inputs.choice}} || ${{inputs.string}}
       # pass: ${{inputs}}
     secrets: inherit
 #   build:
