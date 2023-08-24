@@ -16,7 +16,7 @@ jobs:
     name: validation
     uses: nasir17git/called/.github/workflows/env.yaml@main
     with:
-      env_name: prd
+      env_name: prod
       
     
   calling:
