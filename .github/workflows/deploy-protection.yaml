@@ -1,0 +1,26 @@
+name: environment 체크
+run-name: ${{ github.event.head_commit.message }}
+
+on: 
+  push:
+  #   branches:
+  #     - main
+  # pull_request:
+  workflow_dispatch:
+
+jobs:
+  input_check:
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:
+      - uses: actions/checkout@v3
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
+          echo "$GITHUB_CONTEXT"
+      - name: Dump inputs
+        env:
+          INPUT_CONTEXT: ${{ toJson(inputs) }}
+        run: |
+          echo "$INPUT_CONTEXT"

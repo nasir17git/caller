@@ -7,12 +7,17 @@ on:
   #     - main
   # pull_request:
   workflow_dispatch:
+    # inputs:
+    #   env_name:
+    #     type: string
 
 jobs:
   validation:
     name: validation
     uses: nasir17git/called/.github/workflows/env.yaml@main
-    secrets: inherit
+    with:
+      env_name: prod
+      
     
   calling:
     needs: validation
