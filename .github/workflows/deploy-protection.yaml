@@ -7,20 +7,20 @@ on:
   #     - main
   # pull_request:
   workflow_dispatch:
+  repository_dispatch:
+    types: [force_start]
 
 jobs:
   input_check:
     runs-on: ubuntu-latest
-    environment: prod
+    if: ${{ !github.event.client_payload.force_start }}
     steps:
       - uses: actions/checkout@v3
+      - env:
+          MESSAGE: ${{ github.event.client_payload.message }}
+        run: echo $MESSAGE
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
           echo "$GITHUB_CONTEXT"
-      - name: Dump inputs
-        env:
-          INPUT_CONTEXT: ${{ toJson(inputs) }}
-        run: |
-          echo "$INPUT_CONTEXT"
