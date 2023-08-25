@@ -1,0 +1,26 @@
+name: environment 체크
+run-name: ${{ github.event.head_commit.message }}
+
+on: 
+  push:
+  #   branches:
+  #     - main
+  # pull_request:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [force_start]
+
+jobs:
+  input_check:
+    runs-on: ubuntu-latest
+    if: ${{ !github.event.client_payload.force_start }}
+    steps:
+      - uses: actions/checkout@v3
+      - env:
+          MESSAGE: ${{ github.event.client_payload.message }}
+        run: echo $MESSAGE
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
+          echo "$GITHUB_CONTEXT"
