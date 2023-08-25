@@ -9,6 +9,7 @@ on:
   workflow_dispatch:
     inputs:
       env_name:
+        description: 'aaaaabbbbbcccccdddddeeeeefffffggggghhhhhaaaaabbbbbcccccdddddeeeeefffffggggghhhhh'
         type: string
 
 jobs:
