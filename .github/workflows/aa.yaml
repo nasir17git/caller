@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
     inputs:
       env_name:
-        description: 'aaaaabbbbbcccccdddddeeeeefffffggggghhhhhaaaaabbbbbcccccdddddeeeeefffffggggghhhhh'
+        description: 'dev-qa 서버에 배포할 경우, dev-qa-의 뒷부분을 입력해주세요. ex)dev-qa-lenditapp 시 lenditapp만 입력'
         type: string
 
 jobs:
