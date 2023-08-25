@@ -1,4 +1,4 @@
-name: 운영 배포
+name: 🏗️ 개발 
 run-name: "Name: ${{ github.event.pull_request.title || github.event.head_commit.message }}"
 
 on: 
@@ -25,21 +25,4 @@ jobs:
     name: build
     uses: nasir17git/called/.github/workflows/con-name.yaml@main
     secrets: inherit
-  
-  # check_for_failed:
-  #   runs-on: ubuntu-latest
-  #   needs: validation
-  #   if: always()
-  #   steps:
-  #     - name: check
-  #       run: |
-  #         echo ${{needs.validation.outputs.in_progress_check}}
-  #         echo ${{needs.validation.outputs.branch_check}}
-
-  #     - name: check-needs
-  #       env:
-  #         CONTEXT: ${{ toJson(needs) }}
-  #       run: |
-  #         echo "needs"
-  #         echo "$CONTEXT"
 
