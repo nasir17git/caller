@@ -7,11 +7,23 @@ on:
   workflow_dispatch:
 
 jobs:
+  # matrix_setup:
+  #   name: setup
+  #   uses: nasir17git/called/.github/workflows/matrix-setup.yaml@main
+  #   with:
+  #     APPLICATION_NAME: full-app-name
+  #     PROJECT_NAME: app-name
+  #     MODULE_LIST: '["svc1", "svc2"]'
+  #   secrets: inherit
+
   matrix_build:
     name: build
     uses: nasir17git/called/.github/workflows/matrix-build.yaml@main
+    strategy:
+      matrix:
+        MODULE_LIST: ["svc1", "svc2"]
     with:
       APPLICATION_NAME: full-app-name
       PROJECT_NAME: app-name
-      MODULE_LIST: '["svc1", "svc2"]'
+      MODULE_LIST: ${{ matrix.MODULE_LIST }}
     secrets: inherit
