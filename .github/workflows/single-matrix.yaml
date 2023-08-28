@@ -1,0 +1,26 @@
+name: single-matrix Workflow
+run-name: "matrixbuild/ ${{ github.event.pull_request.title || github.event.head_commit.message }}"
+
+on:
+    push:
+    workflow_dispatch:
+      inputs:
+        products:
+          description: "List of Products"
+          default: '["yellow"]'
+        limits:
+          description: "List of limits"
+          default: '[50]'
+  
+  jobs:
+    build:
+      runs-on: ubuntu-latest
+      strategy:
+        matrix:
+          product: ${{ fromJSON(github.event.inputs.products)}}
+          limits: ${{ fromJSON(github.event.inputs.limits) }}
+      steps:
+        - run: |
+            echo ${{ github.event.inputs.products }}
+            echo ${{ fromJSON(github.event.inputs.products)}}
+            
