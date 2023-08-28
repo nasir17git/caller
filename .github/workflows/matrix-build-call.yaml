@@ -4,6 +4,7 @@ run-name: "matrixbuild/ ${{ github.event.pull_request.title || github.event.head
 on: 
   push:
   pull_request:
+  workflow_dispatch:
 
 jobs:
   matrix_build:
