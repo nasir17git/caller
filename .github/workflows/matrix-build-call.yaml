@@ -12,5 +12,5 @@ jobs:
     with:
       APPLICATION_NAME: full-app-name
       PROJECT_NAME: app-name
-      MODULE_LIST: ["svc1", "svc2"]
+      MODULE_LIST: "svc1", "svc2"
     secrets: inherit
