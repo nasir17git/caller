@@ -14,11 +14,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    # strategy:
-    #   matrix:
-    #     product: ${{ fromJSON(github.event.inputs.products)}}
-    #     limits: ${{ fromJSON(github.event.inputs.limits) }}
+    strategy:
+      matrix:
+        product: ${{ github.event.inputs.products}}
+        limits: ${{ github.event.inputs.limits }}
     steps:
       - run: |
           echo ${{ github.event.inputs.products }}
           echo ${{ fromJSON(github.event.inputs.products)}}
+          echo ${{ matrix.product}}
