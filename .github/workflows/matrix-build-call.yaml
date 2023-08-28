@@ -1,0 +1,16 @@
+name: Caller Workflow
+run-name: "matrixbuild/ ${{ github.event.pull_request.title || github.event.head_commit.message }}"
+
+on: 
+  push:
+  pull_request:
+
+jobs:
+  matrix_build:
+    name: build
+    uses: nasir17git/called/.github/workflows/matrix-build.yaml@main
+    with:
+      APPLICATION_NAME: full-app-name
+      PROJECT_NAME: app-name
+      MODULE_LIST: ["svc1", "svc2"]
+    secrets: inherit
