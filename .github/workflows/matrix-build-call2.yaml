@@ -1,0 +1,56 @@
+name: matrix-reusable Workflow2
+run-name: "matrixbuild/ ${{ github.event.pull_request.title || github.event.head_commit.message }}"
+
+# https://github.com/actions/runner/issues/2424
+
+on: 
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      all:
+        type: boolean
+      svc1:
+        type: boolean
+      svc2:
+        type: boolean
+      svc3:
+        type: boolean
+      aaa:
+        type: boolean
+      abc: 
+        type: boolean
+
+jobs:
+  matrix_setup:
+    name: matrix_setup
+    uses: nasir17git/called/.github/workflows/matrix-setup2.yaml@main
+    with:
+      APPLICATION_NAME: full-app-name
+      PROJECT_NAME: app-name
+      MODULE_ALL: ${{ inputs.all }}
+      ALL: ${{ toJSON(inputs)}}
+    secrets: inherit
+
+  debug:
+    name: matrix_check
+    runs-on: ubuntu-latest
+    needs: matrix_setup
+    steps: 
+      - name: check
+        run: |
+          echo "${{needs.matrix_setup.outputs.matrix_test}}"
+          echo "${{fromJSON(needs.matrix_setup.outputs.matrix_test)}}"
+
+  matrix_build:
+    needs: debug
+    name: build
+    uses: nasir17git/called/.github/workflows/matrix-build.yaml@main
+    strategy:
+      matrix:
+        MODULE_LIST: ${{ fromJSON(needs.matrix_setup.outputs.matrix) }}
+    with:
+      APPLICATION_NAME: full-app-name
+      PROJECT_NAME: app-name
+      MODULE_LIST: ${{matrix.MODULE_LIST}}
+    secrets: inherit
