@@ -26,10 +26,7 @@ jobs:
     with:
       APPLICATION_NAME: full-app-name
       PROJECT_NAME: app-name
-      # MODULE_ALL: ${{ inputs.all }}
-      # MODULE_1: ${{ inputs.svc1 }}
-      # MODULE_2: ${{ inputs.svc2 }}
-      # MODULE_3: ${{ inputs.svc3 }}
+      MODULE_ALL: ${{ inputs.all }}
       ALL: ${{ toJSON(inputs)}}
     secrets: inherit
 
