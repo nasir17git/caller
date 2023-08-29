@@ -12,9 +12,9 @@ jobs:
     uses: nasir17git/called/.github/workflows/matrix-build.yaml@main
     strategy:
       matrix:
-        MODULE_LIST: ["svc1","svc2"]
+        MODULE_LIST: [svc1, svc2]
     with:
       APPLICATION_NAME: full-app-name
       PROJECT_NAME: app-name
-      MODULE_LIST: ${{ matrix.MODULE_LIST }}
+      MODULE_LIST: ${{matrix.MODULE_LIST}}
     secrets: inherit
