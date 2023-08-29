@@ -4,7 +4,7 @@ run-name: "matrixbuild/ ${{ github.event.pull_request.title || github.event.head
 # https://github.com/actions/runner/issues/2424
 
 on: 
-  # push:
+  push:
   pull_request:
   workflow_dispatch:
     inputs:
@@ -39,8 +39,8 @@ jobs:
     steps: 
       - name: check
         run: |
-          echo "${{needs.matrix_setup.outputs.matrix_test}}"
-          echo "${{fromJSON(needs.matrix_setup.outputs.matrix_test)}}"
+          echo "${{needs.matrix_setup.outputs.matrix}}"
+          echo "${{fromJSON(needs.matrix_setup.outputs.matrix)}}"
 
   matrix_build:
     needs: debug
