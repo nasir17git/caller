@@ -2,7 +2,7 @@ name: matrix-reusable Workflow
 run-name: "matrixbuild/ ${{ github.event.pull_request.title || github.event.head_commit.message }}"
 
 on: 
-  push:
+  # push:
   pull_request:
   workflow_dispatch:
     inputs:
@@ -34,7 +34,7 @@ jobs:
     uses: nasir17git/called/.github/workflows/matrix-build.yaml@main
     strategy:
       matrix:
-        MODULE_LIST: ${{ needs.matrix_setup.outputs.MODULE_LIST }}
+        MODULE_LIST: ${{ needs.matrix_setup.outputs.MODULE_LIST }} []
     with:
       APPLICATION_NAME: full-app-name
       PROJECT_NAME: app-name
