@@ -51,5 +51,5 @@ jobs:
     with:
       APPLICATION_NAME: full-app-name
       PROJECT_NAME: app-name
-      MODULE_LIST: ${{matrix.module}}
+      MODULE_NAME: ${{matrix.module}}
     secrets: inherit
