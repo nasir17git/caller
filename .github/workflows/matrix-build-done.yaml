@@ -16,5 +16,4 @@ jobs:
     with:
       APPLICATION_NAME: full-app-name
       PROJECT_NAME: app-name
-      MODULE_LIST: ${{matrix.MODULE_LIST}}
     secrets: inherit
