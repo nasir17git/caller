@@ -1,0 +1,29 @@
+name: matrix-reusable Workflow - done
+run-name: "matrixbuild/ ${{ github.event.pull_request.title || github.event.head_commit.message }}"
+
+on: 
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      all:
+        type: boolean
+      svc1:
+        type: boolean
+      svc2:
+        type: boolean
+      svc3:
+        type: boolean
+
+jobs:
+  matrix_build:
+    needs: matrix_setup
+    name: build
+    uses: nasir17git/called/.github/workflows/matrix-build.yaml@main
+    strategy:
+      matrix:
+        MODULE_LIST: ["svc1",["svc2"]]
+    with:
+      APPLICATION_NAME: full-app-name
+      PROJECT_NAME: app-name
+    secrets: inherit
