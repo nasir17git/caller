@@ -5,19 +5,42 @@ on:
   workflow_dispatch:
 
 jobs:
+  # job1:
+  #   runs-on: ubuntu-latest
+  #   outputs:
+  #     matrix: ${{ steps.set-matrix.outputs.matrix }}
+  #   steps:
+  #     # - id: set-matrix
+  #     #   run: echo "matrix={\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}" >> $GITHUB_OUTPUT
+      
+  #     - id: set-matrix
+  #       run: echo "matrix={\"include\":[{\"project\":\"foo\"},{\"project\":\"bar\"}]}" >> $GITHUB_OUTPUT
+      
+  #     - name: check output
+  #       run: echo ${{ steps.set-matrix.outputs.matrix }}
+  # job2:
+  #   needs: job1
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     matrix: ${{ fromJSON(needs.job1.outputs.matrix) }}
+  #   steps:
+  #     - run: |
+  #         echo ${{ matrix.project}}
+  #         echo ${{ matrix.config}}
+
   job1:
     runs-on: ubuntu-latest
     outputs:
-      matrix: ${{ steps.set-matrix.outputs.matrix }}
+      matrix: ${{ env.matrix }}
     steps:
       # - id: set-matrix
       #   run: echo "matrix={\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}" >> $GITHUB_OUTPUT
       
       - id: set-matrix
-        run: echo "matrix={\"include\":[{\"project\":\"foo\"},{\"project\":\"bar\"}]}" >> $GITHUB_OUTPUT
+        run: echo "matrix={\"include\":[{\"project\":\"foo\"},{\"project\":\"bar\"}]}" >> $GITHUB_ENV
       
       - name: check output
-        run: echo ${{ steps.set-matrix.outputs.matrix }}
+        run: echo ${{ env.matrix }}
   job2:
     needs: job1
     runs-on: ubuntu-latest
