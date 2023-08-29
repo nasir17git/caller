@@ -1,7 +1,7 @@
 name: build
 
 on: 
-  # push:
+  push:
   workflow_dispatch:
 
 jobs:
@@ -10,8 +10,12 @@ jobs:
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
+      # - id: set-matrix
+      #   run: echo "matrix={\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}" >> $GITHUB_OUTPUT
+      
       - id: set-matrix
-        run: echo "matrix={\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}" >> $GITHUB_OUTPUT
+        run: echo "matrix={\"include\":[{\"project\":\"foo\"},{\"project\":\"bar\"}]}" >> $GITHUB_OUTPUT
+      
       - name: check output
         run: echo ${{ steps.set-matrix.outputs.matrix }}
   job2:
