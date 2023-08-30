@@ -17,7 +17,7 @@ on:
       svc3:
         type: boolean
       DESCRIPTION2:
-        description: "-----"
+        description: "----------"
         type: choice
         options:
           - "개별 모듈 배포 시 해당 모듈만 체크"
