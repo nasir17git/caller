@@ -20,7 +20,7 @@ on:
         description: "----------"
         type: choice
         options:
-          - "개별 모듈 배포 시 해당 모듈만 체크"
+          - "구분선"
       aaa:
         type: boolean
       abc: 
@@ -37,24 +37,24 @@ jobs:
       ALL: ${{ toJSON(inputs)}}
     secrets: inherit
 
-  # debug:
-  #   name: matrix_check
-  #   runs-on: ubuntu-latest
-  #   needs: matrix_setup
-  #   steps: 
-  #     - name: check
-  #       run: |
-  #         echo "${{needs.matrix_setup.outputs.matrix}}"
-  #         echo "${{fromJSON(needs.matrix_setup.outputs.matrix)}}"
-
-  matrix_build:
+  debug:
+    name: matrix_check
+    runs-on: ubuntu-latest
     needs: matrix_setup
-    name: build
-    uses: nasir17git/called/.github/workflows/matrix-build.yaml@main
-    strategy:
-      matrix: ${{ fromJSON(needs.matrix_setup.outputs.matrix) }}
-    with:
-      APPLICATION_NAME: full-app-name
-      PROJECT_NAME: app-name
-      MODULE_LIST: ${{matrix.module}}
-    secrets: inherit
+    steps: 
+      - name: check
+        run: |
+          echo "${{needs.matrix_setup.outputs.matrix}}"
+          echo "${{fromJSON(needs.matrix_setup.outputs.matrix)}}"
+
+  # matrix_build:
+  #   needs: check
+  #   name: build
+  #   uses: nasir17git/called/.github/workflows/matrix-build.yaml@main
+  #   strategy:
+  #     matrix: ${{ fromJSON(needs.matrix_setup.outputs.matrix) }}
+  #   with:
+  #     APPLICATION_NAME: full-app-name
+  #     PROJECT_NAME: app-name
+  #     MODULE_LIST: ${{matrix.module}}
+  #   secrets: inherit
