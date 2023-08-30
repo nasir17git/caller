@@ -1,10 +1,10 @@
-name: matrix-reusable Workflow2
+name: matrix-reusable Workflow3
 run-name: "matrixbuild/ ${{ github.event.pull_request.title || github.event.head_commit.message }}"
 
 # https://github.com/actions/runner/issues/2424
 
 on: 
-  push:
+  # push:
   pull_request:
   workflow_dispatch:
     inputs:
