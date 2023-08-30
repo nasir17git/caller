@@ -1,5 +1,5 @@
 name: matrix-reusable Workflow3
-run-name: "matrixbuild3/ ${{ github.event.pull_request.title || github.event.head_commit.message }}"
+run-name: "matrixbuild3/ ${{ github.event.pull_request.title || github.event.head_commit.message }} / ${{inputs.comment}} "
 
 # https://github.com/actions/runner/issues/2424
 
@@ -25,6 +25,9 @@ on:
         type: boolean
       abc: 
         type: boolean
+      comment: 
+        description: "수동실행시 코멘트남기기"
+        type: string
 
 jobs:
   matrix_setup:
