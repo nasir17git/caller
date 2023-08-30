@@ -4,7 +4,7 @@ run-name: "matrixbuild/ ${{ github.event.pull_request.title || github.event.head
 # https://github.com/actions/runner/issues/2424
 
 on: 
-  push:
+  # push:
   pull_request:
   workflow_dispatch:
     inputs:
@@ -16,6 +16,11 @@ on:
         type: boolean
       svc3:
         type: boolean
+      DESCRIPTION2:
+        description: ""
+        type: choice
+        options:
+          - "개별 모듈 배포 시 해당 모듈만 체크"
       aaa:
         type: boolean
       abc: 
