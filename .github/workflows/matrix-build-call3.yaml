@@ -8,13 +8,18 @@ on:
   pull_request:
   workflow_dispatch:
     inputs:
-      all:
+      MODULE_ALL:
+        description: 'ALL'
         type: boolean
       svc1:
         type: boolean
       svc2:
         type: boolean
-      svc3:
+      DEPLOY_api:
+        description: 'api'
+        type: boolean
+      DEPLOY_batch:
+        description: 'batch'
         type: boolean
       DESCRIPTION2:
         description: "----------"
@@ -23,7 +28,11 @@ on:
           - "구분선"
       aaa:
         type: boolean
-      abc: 
+      DEPLOY_eee:
+        description: 'eee'
+        type: boolean
+      DEPLOY_trtt:
+        description: 'trtt'
         type: boolean
       comment: 
         description: "수동실행시 코멘트남기기"
@@ -36,7 +45,7 @@ jobs:
     with:
       APPLICATION_NAME: full-app-name
       PROJECT_NAME: app-name
-      MODULE_ALL: ${{ inputs.all }}
+      MODULE_ALL: ${{ inputs.MODULE_ALL }}
       ALL: ${{ toJSON(inputs)}}
     secrets: inherit
 
