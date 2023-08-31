@@ -40,23 +40,36 @@ jobs:
       ALL: ${{ toJSON(inputs)}}
     secrets: inherit
 
+  # debug:
+  #   name: matrix_check
+  #   runs-on: ubuntu-latest
+  #   needs: matrix_setup
+  #   env:
+  #     value: ${{needs.matrix_setup.outputs.matrix}}
+  #     fromJSON: ${{fromJSON(needs.matrix_setup.outputs.matrix)}}
+  #   steps: 
+  #     - name: check
+  #       run: |
+  #         echo " ----- "
+  #         echo "${{env.value}}"
+  #         echo " ----- "
+  #         echo "${{env.fromJSON}}"
+
   debug:
     name: matrix_check
     runs-on: ubuntu-latest
     needs: matrix_setup
-    env:
-      value: ${{needs.matrix_setup.outputs.matrix}}
-      fromJSON: ${{fromJSON(needs.matrix_setup.outputs.matrix)}}
     steps: 
       - name: check
         run: |
           echo " ----- "
-          echo "${{env.value}}"
+          echo "${{needs.matrix_setup.outputs.matrix}}"
           echo " ----- "
-          echo "${{env.fromJSON}}"
+          echo "${{fromJSON(needs.matrix_setup.outputs.matrix)}}"
+
 
   matrix_build:
-    needs: matrix_setup
+    needs: debug
     name: build
     uses: nasir17git/called/.github/workflows/matrix-build.yaml@main
     strategy:
