@@ -32,7 +32,7 @@ on:
 jobs:
   matrix_setup:
     name: matrix_setup
-    uses: nasir17git/called/.github/workflows/matrix-setup3.yaml@main
+    uses: nasir17git/called/.github/workflows/matrix-setup3-good.yaml@main
     with:
       APPLICATION_NAME: full-app-name
       PROJECT_NAME: app-name
