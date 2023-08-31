@@ -30,15 +30,15 @@ on:
         type: string
 
 jobs:
-  # matrix_setup:
-  #   name: matrix_setup
-  #   uses: nasir17git/called/.github/workflows/matrix-setup3.yaml@main
-  #   with:
-  #     APPLICATION_NAME: full-app-name
-  #     PROJECT_NAME: app-name
-  #     MODULE_ALL: ${{ inputs.all }}
-  #     ALL: ${{ toJSON(inputs)}}
-  #   secrets: inherit
+  matrix_setup:
+    name: matrix_setup
+    uses: nasir17git/called/.github/workflows/matrix-setup3.yaml@main
+    with:
+      APPLICATION_NAME: full-app-name
+      PROJECT_NAME: app-name
+      MODULE_ALL: ${{ inputs.all }}
+      ALL: ${{ toJSON(inputs)}}
+    secrets: inherit
 
   # debug:
   #   name: matrix_check
@@ -60,8 +60,8 @@ jobs:
     name: build
     uses: nasir17git/called/.github/workflows/matrix-build.yaml@main
     strategy:
-      # matrix: ${{ fromJSON(needs.matrix_setup.outputs.matrix) }}
-      matrix: {"include":[{"module":"api"},{"module":"batch"}]}
+      matrix: ${{ fromJSON(needs.matrix_setup.outputs.matrix) }}
+      # matrix: {"include":[{"module":"api"},{"module":"batch"}]}
     with:
       APPLICATION_NAME: full-app-name
       PROJECT_NAME: app-name
