@@ -40,20 +40,20 @@ jobs:
       ALL: ${{ toJSON(inputs)}}
     secrets: inherit
 
-  # debug:
-  #   name: matrix_check
-  #   runs-on: ubuntu-latest
-  #   needs: matrix_setup
-  #   env:
-  #     value: ${{needs.matrix_setup.outputs.matrix}}
-  #     fromJSON: ${{fromJSON(needs.matrix_setup.outputs.matrix)}}
-  #   steps: 
-  #     - name: check
-  #       run: |
-  #         echo " ----- "
-  #         echo "${{env.value}}"
-  #         echo " ----- "
-  #         echo "${{env.fromJSON}}"
+  debug:
+    name: matrix_check
+    runs-on: ubuntu-latest
+    needs: matrix_setup
+    env:
+      value: ${{needs.matrix_setup.outputs.matrix}}
+      fromJSON: ${{fromJSON(needs.matrix_setup.outputs.matrix)}}
+    steps: 
+      - name: check
+        run: |
+          echo " ----- "
+          echo "${{env.value}}"
+          echo " ----- "
+          echo "${{env.fromJSON}}"
 
   matrix_build:
     needs: matrix_setup
