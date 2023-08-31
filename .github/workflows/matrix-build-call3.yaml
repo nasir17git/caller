@@ -56,7 +56,7 @@ jobs:
   #         echo "${{env.fromJSON}}"
 
   matrix_build:
-    # needs: matrix_setup
+    needs: matrix_setup
     name: build
     uses: nasir17git/called/.github/workflows/matrix-build.yaml@main
     strategy:
