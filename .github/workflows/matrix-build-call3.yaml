@@ -55,21 +55,21 @@ jobs:
   #         echo " ----- "
   #         echo "${{env.fromJSON}}"
 
-  debug:
-    name: matrix_check
-    runs-on: ubuntu-latest
-    needs: matrix_setup
-    steps: 
-      - name: check
-        run: |
-          echo " ----- "
-          echo "${{needs.matrix_setup.outputs.matrix}}"
-          echo " ----- "
-          echo "${{fromJSON(needs.matrix_setup.outputs.matrix)}}"
+  # debug:
+  #   name: matrix_check
+  #   runs-on: ubuntu-latest
+  #   needs: matrix_setup
+  #   steps: 
+  #     - name: check
+  #       run: |
+  #         echo " ----- "
+  #         echo "${{needs.matrix_setup.outputs.matrix}}"
+  #         echo " ----- "
+  #         echo "${{fromJSON(needs.matrix_setup.outputs.matrix)}}"
 
 
   matrix_build:
-    needs: debug
+    # needs: debug
     name: build
     uses: nasir17git/called/.github/workflows/matrix-build.yaml@main
     strategy:
