@@ -4,7 +4,7 @@ run-name: "matrixbuild3/ ${{ github.event.pull_request.title || github.event.hea
 # https://github.com/actions/runner/issues/2424
 
 on: 
-  push:
+  # push:
   pull_request:
   workflow_dispatch:
     inputs:
@@ -30,39 +30,40 @@ on:
         type: string
 
 jobs:
-  matrix_setup:
-    name: matrix_setup
-    uses: nasir17git/called/.github/workflows/matrix-setup3.yaml@main
-    with:
-      APPLICATION_NAME: full-app-name
-      PROJECT_NAME: app-name
-      MODULE_ALL: ${{ inputs.all }}
-      ALL: ${{ toJSON(inputs)}}
-    secrets: inherit
-
-  debug:
-    name: matrix_check
-    runs-on: ubuntu-latest
-    needs: matrix_setup
-    env:
-      value: ${{needs.matrix_setup.outputs.matrix}}
-      fromJSON: ${{fromJSON(needs.matrix_setup.outputs.matrix)}}
-    steps: 
-      - name: check
-        run: |
-          echo " ----- "
-          echo "${{env.value}}"
-          echo " ----- "
-          echo "${{env.fromJSON}}"
-
-  # matrix_build:
-  #   needs: matrix_setup
-  #   name: build
-  #   uses: nasir17git/called/.github/workflows/matrix-build.yaml@main
-  #   strategy:
-  #     matrix: ${{ fromJSON(needs.matrix_setup.outputs.matrix) }}
+  # matrix_setup:
+  #   name: matrix_setup
+  #   uses: nasir17git/called/.github/workflows/matrix-setup3.yaml@main
   #   with:
   #     APPLICATION_NAME: full-app-name
   #     PROJECT_NAME: app-name
-  #     MODULE_LIST: ${{matrix.module}}
+  #     MODULE_ALL: ${{ inputs.all }}
+  #     ALL: ${{ toJSON(inputs)}}
   #   secrets: inherit
+
+  # debug:
+  #   name: matrix_check
+  #   runs-on: ubuntu-latest
+  #   needs: matrix_setup
+  #   env:
+  #     value: ${{needs.matrix_setup.outputs.matrix}}
+  #     fromJSON: ${{fromJSON(needs.matrix_setup.outputs.matrix)}}
+  #   steps: 
+  #     - name: check
+  #       run: |
+  #         echo " ----- "
+  #         echo "${{env.value}}"
+  #         echo " ----- "
+  #         echo "${{env.fromJSON}}"
+
+  matrix_build:
+    # needs: matrix_setup
+    name: build
+    uses: nasir17git/called/.github/workflows/matrix-build.yaml@main
+    strategy:
+      # matrix: ${{ fromJSON(needs.matrix_setup.outputs.matrix) }}
+      matrix: fromJSON({"include":[{"module":"api"},{"module":"batch"}]})
+    with:
+      APPLICATION_NAME: full-app-name
+      PROJECT_NAME: app-name
+      MODULE_LIST: ${{matrix.module}}
+    secrets: inherit
