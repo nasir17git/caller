@@ -88,5 +88,4 @@ jobs:
       APPLICATION_NAME: full-app-name
       PROJECT_NAME: app-name
       MODULE_LIST: ${{matrix.module}}
-      NAME_CHECK: 
     secrets: inherit
