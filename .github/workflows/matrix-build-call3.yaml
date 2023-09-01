@@ -83,9 +83,10 @@ jobs:
     uses: nasir17git/called/.github/workflows/matrix-build.yaml@main
     strategy:
       matrix: ${{ fromJSON(needs.matrix_setup.outputs.matrix) }}
-      # matrix: {"include":[{"module":"api"},{"module":"batch"}]}
+      # matrix: {\"include\":[{"module":"api"},{"module":"batch"}]}
     with:
       APPLICATION_NAME: full-app-name
       PROJECT_NAME: app-name
       MODULE_LIST: ${{matrix.module}}
+      NAME_CHECK: 
     secrets: inherit
