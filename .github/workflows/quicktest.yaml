@@ -20,6 +20,7 @@ jobs:
           if [ "true" = "true" ]; then
             echo "flag true"
             flag_ARG=" -x flag"
+            echo $flag_ARG
           fi
           echo $AAA
           echo $BBB
