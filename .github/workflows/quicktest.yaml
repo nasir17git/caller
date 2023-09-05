@@ -17,10 +17,14 @@ jobs:
       
       - name: check env
         run: |
+          if [ "true" = "true" ]; then
+            echo "flag true"
+            flag_ARG=" -x flag"
+          fi
           echo $AAA
           echo $BBB
           echo "---"
           echo ${BBB}
           echo "---"
-          echo $AAAtext$BBB
+          echo $AAA:text $flag_ARG"
           echo $AAAtext${BBB}
