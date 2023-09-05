@@ -19,7 +19,7 @@ jobs:
           echo "BUILD_FLAG=false" >> $GITHUB_ENV
       
       - name: check env
-        if: env.BUILD_FLAG
+        if: env.BUILD_FLAG == true
         run: |
           if [ "true" = "true" ]; then
             echo "flag true"
