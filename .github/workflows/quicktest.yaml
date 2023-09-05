@@ -27,5 +27,5 @@ jobs:
           echo "---"
           echo ${BBB}
           echo "---"
-          echo $AAA:text $flag_ARG"
+          echo "$AAA:text $flag_ARG"
           echo $AAAtext${BBB}
