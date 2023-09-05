@@ -12,6 +12,8 @@ jobs:
         run: |
           AAA="aaa"
           BBB="bbb"
+          echo $AAA
+          echo $BBB
       
       - name: check env
         run: |
