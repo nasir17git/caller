@@ -4,8 +4,8 @@ run-name: "matrixbuild4/ ${{ github.event.pull_request.title || github.event.hea
 # https://github.com/actions/runner/issues/2424
 
 on: 
-  push:
-  pull_request:
+  # push:
+  # pull_request:
   workflow_dispatch:
     inputs:
       MODULE_ALL:

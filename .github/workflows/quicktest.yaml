@@ -10,8 +10,8 @@ jobs:
     steps:
       - name: set-env
         run: |
-          AAA="aaa"
-          BBB="bbb"
+          echo "AAA="aaa""
+          echo "BBB="bbb""
           echo $AAA
           echo $BBB
       
