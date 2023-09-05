@@ -44,38 +44,14 @@ jobs:
     uses: nasir17git/called/.github/workflows/matrix-setup-4.yaml@main
     with:
       APPLICATION_NAME: full-app-name
+      DEPLOYGROUP_NAME: ${{ inputs.CONFIRMATION }}
       PROJECT_NAME: app-name
       MODULE_ALL: ${{ inputs.MODULE_ALL }}
+      ENVIRONMENT: "🏗️개발"
+      ORG_PATH: "/deploy/org.zip"
+      TRG_PATH: "complete.zip"
       ALL: ${{ toJSON(inputs)}}
     secrets: inherit
-
-  # debug:
-  #   name: matrix_check
-  #   runs-on: ubuntu-latest
-  #   needs: matrix_setup
-  #   env:
-  #     value: ${{needs.matrix_setup.outputs.matrix}}
-  #     fromJSON: ${{fromJSON(needs.matrix_setup.outputs.matrix)}}
-  #   steps: 
-  #     - name: check
-  #       run: |
-  #         echo " ----- "
-  #         echo "${{env.value}}"
-  #         echo " ----- "
-  #         echo "${{env.fromJSON}}"
-
-  # debug:
-  #   name: matrix_check
-  #   runs-on: ubuntu-latest
-  #   needs: matrix_setup
-  #   steps: 
-  #     - name: check
-  #       run: |
-  #         echo " ----- "
-  #         echo "${{needs.matrix_setup.outputs.matrix}}"
-  #         echo " ----- "
-  #         echo "${{fromJSON(needs.matrix_setup.outputs.matrix)}}"
-
 
   matrix_build:
     needs: matrix_setup

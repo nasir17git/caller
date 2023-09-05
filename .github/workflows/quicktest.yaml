@@ -1,0 +1,24 @@
+name: quicktest
+
+on: 
+  push:
+  workflow_dispatch:
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: set-env
+        run: |
+          AAA="aaa"
+          BBB="bbb"
+      
+      - name: check env
+        run: |
+          echo $AAA
+          echo $BBB
+          echo "---"
+          echo ${BBB}
+          echo "---"
+          echo $AAAtext$BBB
+          echo $AAAtext${BBB}
