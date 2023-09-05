@@ -14,6 +14,9 @@ jobs:
           echo "BBB=bbb" >> $GITHUB_ENV
           echo $AAA
           echo $BBB
+          la=-alh
+          ls ${la}
+
       
       - name: check env
         run: |
