@@ -3,6 +3,10 @@ name: quicktest
 on: 
   push:
   workflow_dispatch:
+    inputs:
+      DDD:
+        description: boolean옵션 설명 
+        type: boolean
 
 jobs:
   job1:
