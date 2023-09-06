@@ -23,7 +23,7 @@ jobs:
           echo "BUILD_FLAG=true" >> $GITHUB_ENV
       
       - name: check env`
-        if: env.BUILD_FLAG == false
+        if: env.BUILD_FLAG
         run: |
           if [ "true" = "true" ]; then
             echo "flag true"
@@ -37,3 +37,7 @@ jobs:
           echo "---"
           echo "$AAA:text $flag_ARG"
           echo $AAAtext${BBB}
+
+      - name: check flag
+        run: |
+          echo ${{ env.BUILD_FLAG }}
