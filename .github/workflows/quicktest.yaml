@@ -16,9 +16,9 @@ jobs:
           echo $BBB
           la=-alh
           ls ${la}
-          echo "BUILD_FLAG=false" >> $GITHUB_ENV
+          echo "BUILD_FLAG=true" >> $GITHUB_ENV
       
-      - name: check env
+      - name: check env`
         if: env.BUILD_FLAG == true
         run: |
           if [ "true" = "true" ]; then
