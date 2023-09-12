@@ -3,6 +3,8 @@ name: quicktest-anothername
 on: 
   # push:
   workflow_dispatch:
+    branches:
+      - main
     inputs:
       DDD:
         description: boolean옵션 설명 
