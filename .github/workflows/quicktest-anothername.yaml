@@ -1,7 +1,7 @@
-name: quicktest
+name: quicktest-anothername
 
 on: 
-  push:
+  # push:
   workflow_dispatch:
     inputs:
       DDD:
