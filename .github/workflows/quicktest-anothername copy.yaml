@@ -20,3 +20,5 @@ jobs:
             exit 1
           fi
       - name: success
+        run:
+          echo "done!"
