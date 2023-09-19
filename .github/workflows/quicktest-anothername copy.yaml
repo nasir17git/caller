@@ -15,8 +15,8 @@ jobs:
 
       - name: check for master branch
         run: |
-          if [[ '${{ github.ref}}' != 'refs/heads/master' ]]; then
-            echo "운영 배포는 마스터만 가능합니다."
+          if [[ '${{ github.ref}}' != 'refs/heads/main' ]]; then
+            echo "특정브랜치만 가능합니다."
             exit 1
           fi
       - name: success
