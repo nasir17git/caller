@@ -1,0 +1,22 @@
+name: quicktest-checkformaster
+
+on: 
+  push:
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
+          echo "$GITHUB_CONTEXT"
+
+      - name: check for master branch
+        run: |
+          if [[ '${{ github.ref}}' != 'refs/heads/master' ]]; then
+            echo "운영 배포는 마스터만 가능합니다."
+            exit 1
+          fi
+      - name: success
